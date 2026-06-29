@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>मंडी भाव लाइव | MandiBhavToday — Neemuch, Indore, Kota, Merta, Harda</title>
+<meta name="description" content="नीमच, इंदौर, मेड़ता, हरदा, कोटा मंडी का आज का भाव एक जगह — लाइव डेटा, हर दिन अपडेट, सीधे Agmarknet से।" />
+<link rel="canonical" href="https://example.com/index.html" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="मंडी भाव लाइव | MandiBhavToday — Neemuch, Indore, Kota, Merta, Harda" />
+<meta property="og:description" content="नीमच, इंदौर, मेड़ता, हरदा, कोटा मंडी का आज का भाव एक जगह — लाइव डेटा, हर दिन अपडेट, सीधे Agmarknet से।" />
+<meta property="og:url" content="https://example.com/index.html" />
+<meta property="og:locale" content="hi_IN" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="मंडी भाव लाइव | MandiBhavToday — Neemuch, Indore, Kota, Merta, Harda" />
+<meta name="twitter:description" content="नीमच, इंदौर, मेड़ता, हरदा, कोटा मंडी का आज का भाव एक जगह — लाइव डेटा, हर दिन अपडेट, सीधे Agmarknet से।" />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "मंडी भाव लाइव | MandiBhavToday — Neemuch, Indore, Kota, Merta, Harda",
+  "description": "नीमच, इंदौर, मेड़ता, हरदा, कोटा मंडी का आज का भाव एक जगह — लाइव डेटा, हर दिन अपडेट, सीधे Agmarknet से।",
+  "url": "https://example.com/index.html",
+  "inLanguage": "hi",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "MandiBhavToday",
+    "url": "https://example.com/"
+  }
+}
+</script>
+
+<!-- Bootstrap (layout utilities only; visual system overridden by mandi-theme.css) -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="mandi-theme.css" />
+</head>
+<body>
+
+<header class="mandi-masthead">
+  <div class="mandi-masthead-inner">
+    <p class="mandi-wordmark">Mandi<span>Bhav</span>Today</p>
+    <p class="mandi-tagline">रोज़ का ताज़ा भाव · सीधे एगमार्कनेट से</p>
+  </div>
+  <nav class="mandi-nav">
+    <div class="mandi-nav-inner">
+        <a href="index.html" class="active">होम</a>
+        <a href="mandi-bhav-today.html" class="">आज का भाव</a>
+        <a href="neemuch-mandi-bhav.html" class="">नीमच</a>
+        <a href="indore-mandi-bhav.html" class="">इंदौर</a>
+        <a href="merta-mandi-bhav.html" class="">मेड़ता</a>
+        <a href="harda-mandi-bhav.html" class="">हरदा</a>
+        <a href="kota-mandi-bhav-today.html" class="">कोटा</a>
+    </div>
+  </nav>
+</header>
+
+<section class="mandi-hero">
+  <div>
+    <h1>मंडी भाव — सभी प्रमुख मंडियों का आज का रेट</h1>
+    <p class="lede">एक जगह पर कई मंडियों का भाव देखें। नीचे खोज बॉक्स में मंडी का नाम लिखें, या ऊपर मेन्यू से सीधे अपनी मंडी के पेज पर जाएँ — नीमच, इंदौर, मेड़ता, हरदा और कोटा।</p>
+  </div>
+  <div class="mandi-stamp">
+    <span class="mandi-stamp-label">आज की तारीख़</span>
+    <span class="mandi-stamp-date" data-mandi-date-stamp>—</span>
+  </div>
+</section>
+
+<div class="mandi-toolbar">
+  <p class="mandi-meta"><strong data-mandi-row-count>—</strong> फसलों का रेट दिखाया जा रहा है</p>
+  
+        <input
+          type="text"
+          id="mandiSearchInput"
+          class="mandi-search"
+          placeholder="मंडी का नाम लिखें — जैसे Neemuch, Indore, Kota"
+          autocomplete="off"
+        />
+</div>
+
+<div class="mandi-table-wrap">
+  <table class="mandi-table">
+    <caption>स्रोत: Agmarknet / data.gov.in — Variety-wise Daily Market Prices · भाव ₹ प्रति क्विंटल में</caption>
+    <thead>
+      <tr>
+        <th>फसल (Commodity)</th>
+        <th>किस्म (Variety)</th>
+        <th>मंडी (Market)</th>
+        <th>न्यूनतम (Min)</th>
+        <th>अधिकतम (Max)</th>
+        <th>मोडल (Modal)</th>
+      </tr>
+    </thead>
+    <tbody id="mandiTableBody">
+      <tr class="mandi-loading-row"><td colspan="6">&nbsp;</td></tr>
+      <tr class="mandi-loading-row"><td colspan="6">&nbsp;</td></tr>
+      <tr class="mandi-loading-row"><td colspan="6">&nbsp;</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<article class="mandi-article">
+  <div>
+    <h2>मंडी भाव — सभी प्रमुख मंडियों का आज का रेट</h2>
+    <p>MandiBhavToday हर मंडी पेज पर लाइव डेटा सीधे भारत सरकार के Agmarknet (data.gov.in) पोर्टल से दिखाता है। कोई भी रेट यहाँ सेव नहीं किया जाता — हर बार पेज खोलने पर ताज़ा जानकारी लाई जाती है।</p>
+    <p>अपनी पसंदीदा मंडी जल्दी खोजने के लिए ऊपर मेन्यू में दिए गए शहरों पर क्लिक करें, या नीचे टेबल में सीधे मंडी/फसल का नाम सर्च करें।</p>
+  </div>
+  <aside class="mandi-aside">
+    <h3>अन्य मंडी भाव देखें</h3>
+    <a href="neemuch-mandi-bhav.html">नीमच मंडी भाव देखें →</a>
+          <a href="indore-mandi-bhav.html">इंदौर मंडी भाव देखें →</a>
+          <a href="mandi-bhav-today.html">आज का मंडी भाव देखें →</a>
+          <a href="mandi-bhav.html">मंडी भाव देखें →</a>
+          <a href="neemuch-mandi-bhav-today.html">नीमच मंडी भाव आज देखें →</a>
+          <a href="merta-mandi-bhav.html">मेड़ता मंडी भाव देखें →</a>
+  </aside>
+</article>
+
+<footer class="mandi-footer">
+  <div class="mandi-footer-inner">
+    डेटा स्रोत: <a href="https://agmarknet.gov.in/" target="_blank" rel="noopener">Agmarknet</a> /
+    <a href="https://www.data.gov.in/" target="_blank" rel="noopener">data.gov.in</a> — भारत सरकार,
+    कृषि एवं किसान कल्याण मंत्रालय। यह पेज जानकारी के लिए है; वास्तविक बिक्री से पहले अपनी नज़दीकी
+    मंडी में भाव की पुष्टि अवश्य करें। डेटा यहाँ सेव नहीं किया जाता — हर पेज-लोड पर लाइव लाया जाता है।
+  </div>
+</footer>
+
+<script src="mandi-data.js"></script>
+
+    <script>
+      let allRecordsCache = [];
+
+      async function boot() {
+        document.querySelectorAll("[data-mandi-date-stamp]").forEach(
+          (el) => (el.textContent = todayStampText())
+        );
+        try {
+          allRecordsCache = await fetchMandiBhav({ limit: 500 });
+          const latest = latestDateOnly(allRecordsCache);
+          allRecordsCache = latest;
+          renderMandiTable("mandiTableBody", latest);
+          const countEl = document.querySelector("[data-mandi-row-count]");
+          if (countEl) countEl.textContent = String(latest.length);
+        } catch (err) {
+          renderError("mandiTableBody", err);
+        }
+      }
+
+      function wireSearch() {
+        const input = document.getElementById("mandiSearchInput");
+        if (!input) return;
+        input.addEventListener("input", () => {
+          const q = input.value.trim().toLowerCase();
+          if (!q) {
+            renderMandiTable("mandiTableBody", allRecordsCache);
+            return;
+          }
+          const filtered = allRecordsCache.filter((r) =>
+            [r.market, r.district, r.commodity, r.state]
+              .filter(Boolean)
+              .some((v) => String(v).toLowerCase().includes(q))
+          );
+          renderMandiTable("mandiTableBody", filtered);
+        });
+      }
+
+      boot();
+      wireSearch();
+    </script>
+
+</body>
+</html>

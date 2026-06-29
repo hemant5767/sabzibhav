@@ -1,0 +1,384 @@
+/* ==========================================================================
+   mandi-theme.css
+   Design system: official rate-notice / mandi-board aesthetic.
+   ========================================================================== */
+
+:root {
+  --mandi-bg: #FAF6EE;
+  --mandi-bg-raised: #FFFFFF;
+  --mandi-ink: #2D2A26;
+  --mandi-ink-soft: #6B6356;
+  --mandi-accent: #A8542E;
+  --mandi-accent-deep: #7E3D20;
+  --mandi-up: #5B7553;
+  --mandi-down: #8B2E2E;
+  --mandi-border: #D8CFB8;
+  --mandi-border-soft: #E8E1D1;
+
+  --font-display: Georgia, "Tiempos Headline", "Times New Roman", serif;
+  --font-body: -apple-system, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--mandi-bg);
+  color: var(--mandi-ink);
+  font-family: var(--font-body);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--mandi-accent-deep);
+}
+
+/* ---------- Masthead ---------- */
+.mandi-masthead {
+  border-bottom: 3px solid var(--mandi-ink);
+  background: var(--mandi-bg-raised);
+}
+
+.mandi-masthead-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 20px 14px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mandi-wordmark {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.mandi-wordmark span {
+  color: var(--mandi-accent);
+}
+
+.mandi-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mandi-ink-soft);
+}
+
+.mandi-nav {
+  background: var(--mandi-ink);
+}
+
+.mandi-nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+}
+
+.mandi-nav a {
+  color: #EFE9DA;
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  text-decoration: none;
+  padding: 10px 0;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+
+.mandi-nav a:hover,
+.mandi-nav a.active {
+  border-bottom-color: var(--mandi-accent);
+  color: #fff;
+}
+
+/* ---------- Hero / stamp ---------- */
+.mandi-hero {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 36px 20px 8px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start;
+}
+
+.mandi-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+  line-height: 1.18;
+  margin: 0 0 10px;
+}
+
+.mandi-hero p.lede {
+  font-size: 1.02rem;
+  color: var(--mandi-ink-soft);
+  max-width: 56ch;
+  margin: 0;
+}
+
+.mandi-stamp {
+  width: 108px;
+  height: 108px;
+  border: 3px solid var(--mandi-accent);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-8deg);
+  color: var(--mandi-accent);
+  font-family: var(--font-mono);
+  text-align: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.mandi-stamp::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed var(--mandi-accent);
+  border-radius: 50%;
+  opacity: 0.55;
+}
+
+.mandi-stamp .mandi-stamp-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.mandi-stamp .mandi-stamp-date {
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+@media (max-width: 560px) {
+  .mandi-hero {
+    grid-template-columns: 1fr;
+  }
+  .mandi-stamp {
+    transform: rotate(-4deg);
+  }
+}
+
+/* ---------- Toolbar ---------- */
+.mandi-toolbar {
+  max-width: 1080px;
+  margin: 18px auto 0;
+  padding: 0 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mandi-meta {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--mandi-ink-soft);
+}
+
+.mandi-meta strong {
+  color: var(--mandi-ink);
+}
+
+.mandi-search {
+  border: 1.5px solid var(--mandi-border);
+  background: var(--mandi-bg-raised);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  min-width: 220px;
+  flex: 1 1 220px;
+  max-width: 320px;
+}
+
+.mandi-search:focus {
+  outline: none;
+  border-color: var(--mandi-accent);
+}
+
+/* ---------- Table ---------- */
+.mandi-table-wrap {
+  max-width: 1080px;
+  margin: 14px auto 0;
+  padding: 0 20px;
+}
+
+table.mandi-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--mandi-bg-raised);
+  border: 1px solid var(--mandi-border);
+}
+
+table.mandi-table caption {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--mandi-ink-soft);
+  padding: 10px 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+table.mandi-table thead th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--mandi-ink-soft);
+  background: var(--mandi-border-soft);
+  padding: 10px 12px;
+  border-bottom: 2px solid var(--mandi-ink);
+  position: sticky;
+  top: 0;
+}
+
+table.mandi-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--mandi-border-soft);
+  font-size: 0.92rem;
+}
+
+table.mandi-table tbody tr:hover {
+  background: #FBF8F0;
+}
+
+.mandi-price {
+  font-family: var(--font-mono);
+  text-align: right;
+}
+
+.mandi-price-modal {
+  font-weight: 700;
+  color: var(--mandi-accent-deep);
+}
+
+.mandi-empty {
+  text-align: center;
+  padding: 32px 12px;
+  color: var(--mandi-ink-soft);
+  font-size: 0.95rem;
+}
+
+.mandi-empty-en {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* ---------- Loading skeleton ---------- */
+.mandi-loading-row td {
+  background: linear-gradient(90deg, var(--mandi-border-soft) 25%, #fff 37%, var(--mandi-border-soft) 63%);
+  background-size: 400% 100%;
+  animation: mandi-shimmer 1.4s ease infinite;
+  height: 18px;
+}
+
+@keyframes mandi-shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* ---------- Content / SEO copy block ---------- */
+.mandi-article {
+  max-width: 1080px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+}
+
+.mandi-article h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin: 1.6em 0 0.5em;
+}
+
+.mandi-article h2:first-child {
+  margin-top: 0;
+}
+
+.mandi-article p {
+  line-height: 1.65;
+  color: var(--mandi-ink);
+}
+
+.mandi-article ul {
+  line-height: 1.7;
+}
+
+.mandi-aside {
+  border-left: 1px solid var(--mandi-border);
+  padding-left: 24px;
+}
+
+.mandi-aside h3 {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mandi-ink-soft);
+}
+
+.mandi-aside a {
+  display: block;
+  font-size: 0.9rem;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--mandi-border-soft);
+  text-decoration: none;
+}
+
+.mandi-aside a:hover {
+  color: var(--mandi-accent);
+}
+
+@media (max-width: 760px) {
+  .mandi-article {
+    grid-template-columns: 1fr;
+  }
+  .mandi-aside {
+    border-left: none;
+    border-top: 1px solid var(--mandi-border);
+    padding-left: 0;
+    padding-top: 20px;
+  }
+}
+
+/* ---------- Footer ---------- */
+.mandi-footer {
+  border-top: 3px solid var(--mandi-ink);
+  margin-top: 48px;
+  background: var(--mandi-bg-raised);
+}
+
+.mandi-footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 22px 20px 40px;
+  font-size: 0.8rem;
+  color: var(--mandi-ink-soft);
+  line-height: 1.6;
+}
+
+.mandi-footer-inner a {
+  color: var(--mandi-ink-soft);
+}
