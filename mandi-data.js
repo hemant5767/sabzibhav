@@ -22,7 +22,7 @@ const MANDI_API_BASE = `https://api.data.gov.in/resource/${MANDI_RESOURCE_ID}`;
  * @param {string} [opts.market]   e.g. "Neemuch"
  * @param {number} [opts.limit]    max rows to request (API caps around 1000)
  */
-async function fetchMandiBhav({ state, district, market, limit = 100 } = {}) {
+async function fetchMandiBhav({ state, district, market, limit = 1000 } = {}) {
   const params = new URLSearchParams();
   params.set("api-key", MANDI_API_KEY);
   params.set("format", "json");
@@ -36,9 +36,17 @@ async function fetchMandiBhav({ state, district, market, limit = 100 } = {}) {
 
   const url = `${MANDI_API_BASE}?${params.toString()}`;
 
-  const res = await fetch(url);
+  const res = await fetch(url, {
+
+  cache: "no-store"
+
+});
   if (!res.ok) {
-    throw new Error(`Mandi API request failed: ${res.status}`);
+    throw new Error(
+
+`Mandi API request failed (${res.status})`
+
+);
   }
   const json = await res.json();
   return Array.isArray(json.records) ? json.records : [];
@@ -49,14 +57,38 @@ async function fetchMandiBhav({ state, district, market, limit = 100 } = {}) {
  * just those rows (the API sometimes mixes a few recent dates together).
  */
 function latestDateOnly(records) {
-  if (!records.length) return records;
-  const dates = records
-    .map((r) => r.arrival_date)
-    .filter(Boolean)
-    .sort()
-    .reverse();
-  const latest = dates[0];
-  return records.filter((r) => r.arrival_date === latest);
+
+  if (!records.length) return [];
+
+  function parseDate(dateStr) {
+
+    if (!dateStr) return 0;
+
+    const parts = dateStr.split("/");
+
+    if (parts.length !== 3) return 0;
+
+    const [day, month, year] = parts.map(Number);
+
+    return new Date(year, month - 1, day).getTime();
+  }
+
+  let latest = 0;
+
+  records.forEach(record => {
+
+    const time = parseDate(record.arrival_date);
+
+    if (time > latest) latest = time;
+
+  });
+
+  return records.filter(record =>
+
+    parseDate(record.arrival_date) === latest
+
+  );
+
 }
 
 function escapeHtml(str) {
@@ -145,7 +177,14 @@ async function initMandiPage(filter, tableBodyId = "mandiTableBody") {
   try {
     const records = await fetchMandiBhav(filter);
     const latest = latestDateOnly(records);
-    renderMandiTable(tableBodyId, latest);
+
+latest.sort((a, b) => {
+
+   return Number(b.modal_price) - Number(a.modal_price);
+
+});
+
+renderMandiTable(tableBodyId, latest);
 
     const countEl = document.querySelector("[data-mandi-row-count]");
     if (countEl) countEl.textContent = String(latest.length);
@@ -158,3 +197,12 @@ async function initMandiPage(filter, tableBodyId = "mandiTableBody") {
     renderError(tableBodyId, err);
   }
 }
+setInterval(() => {
+
+   if (typeof initMandiPage === "function") {
+
+      initMandiPage();
+
+   }
+
+}, 300000);
